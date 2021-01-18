@@ -1,0 +1,333 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, #sub-page ul,
+#sub-page ol, .drawers-section-title .btns, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+
+/* Fonts */
+@font-face {
+  font-family: "AO Mono";
+  src: url("../fonts/AOMono-Regular.woff2") format("woff2"),
+       url("../fonts/AOMono-Regular.woff") format("woff"),
+       url("../fonts/AOMono-Regular.otf") format("otf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "AO Mono";
+  src: url("../fonts/AOMono-Bold.woff2") format("woff2"),
+       url("../fonts/AOMono-Bold.woff") format("woff"),
+       url("../fonts/AOMono-Bold.otf") format("otf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "AO Mono";
+  src: url("../fonts/AOMono-Black.woff2") format('woff2'), 
+       url("../fonts/AOMono-Black.woff") format('woff'),
+       url("../fonts/AOMono-Black.otf") format("otf");
+  font-weight: 900;
+}
+
+/* Variables */
+:root {
+  --blue: #4D97D2;
+  --light-blue: #C8DDE7;
+  --pink: #EFA6C9;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--light-blue);
+  font-family: "AO Mono";
+  font-size: 0.8rem;
+  height: 100%;
+}
+
+header {
+  background-color: var(--blue);
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+header a { 
+  text-decoration: none;
+}
+
+header h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 6vw;
+  color: white;
+  padding: 1.5rem 0;
+  width: fit-content;
+  margin: auto;
+}
+
+@media only screen and (min-width: 767px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+header h1::after {
+  content: "2020";
+  color: var(--pink);
+}
+
+.container {
+  margin: 2rem 2rem 15rem;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  height: 75px;
+  margin: auto;
+  background-color: var(--pink);
+  color: white;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.link:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.link:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.link-logo {
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 40px 40px;
+  width: 20%;
+  height: 40px;
+}
+
+@media only screen and (max-width: 425px) {
+  .link-logo {
+    background-size: 30px 30px;
+    width: 25%;
+  }
+
+  .link-title {
+    width: 75%;
+  }
+}
+
+.link-title {
+  line-height: initial;
+  width: 80%;
+  text-align: center;
+  word-wrap: break-word;
+  padding: 1rem 2rem;
+}
+
+#bunny {
+  background-image: url("../images/bunny.svg");
+  background-repeat: no-repeat;
+  position: fixed;
+  bottom: -50px;
+  left: calc(50% - 50px);
+  height: 200px;
+  width: 100px;
+}
+
+#arrow, #arrow-back {
+  background-image: url("../images/arrow.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  width: 28px;
+  height: 33px;
+  left: calc(50% - 15px);
+  top: 50%;
+  transition: 0.3s;
+}
+
+#arrow:hover, #arrow-back:hover {
+  cursor: pointer;
+}
+
+.rotate-arrow {
+  transform: rotate(180deg);
+  transition: 0.3s;
+}
+
+.flower {
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  user-select: none;
+  animation-name: flowers-fall, flowers-shake;
+  animation-duration: 10s, 3s;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  animation-play-state: running, running;
+
+  -webkit-user-select: none;
+  -webkit-amimation-name: flower-fall, flowers-shake;
+  -webkit-animation-duration: 10s, 3s;
+  -webkit-animation-timing-function: linear, ease-in-out;
+  -webkit-animation-iteration-count: infinite, infinite;
+  -webkit-animation-play-state: running, running;
+
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.flower img {
+  width: 2rem;
+}
+
+.flower:nth-of-type(1) {
+  left: 10%;
+  -webkit-animation-delay: 1s, 1s;
+  animation-delay: 1s, 1s;
+}
+.flower:nth-of-type(2) {
+  left: 20%;
+  -webkit-animation-delay: 6s, 0.5s;
+  animation-delay: 6s, 0.5s;
+}
+.flower:nth-of-type(3) {
+  left: 30%;
+  -webkit-animation-delay: 4s, 2s;
+  animation-delay: 4s, 2s;
+}
+.flower:nth-of-type(4) {
+  left: 40%;
+  -webkit-animation-delay: 2s, 2s;
+  animation-delay: 2s, 2s;
+}
+.flower:nth-of-type(5) {
+  left: 50%;
+  -webkit-animation-delay: 8s, 3s;
+  animation-delay: 8s, 3s;
+}
+.flower:nth-of-type(6) {
+  left: 60%;
+  -webkit-animation-delay: 6s, 2s;
+  animation-delay: 6s, 2s;
+}
+.flower:nth-of-type(7) {
+  left: 70%;
+  -webkit-animation-delay: 2.5s, 1s;
+  animation-delay: 2.5s, 1s;
+}
+.flower:nth-of-type(8) {
+  left: 80%;
+  -webkit-animation-delay: 1s, 0s;
+  animation-delay: 1s, 0s;
+}
+
+@keyframes flowers-fall {
+  0% { top: 0%; }
+  100% { top: 100%;}
+}
+
+@keyframes flowers-shake {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(25px); }
+  100% { transform: translateX(0); }
+}
+
+
+
+/* Instagram photo contest rules */
+#contest {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin: auto;
+  background-color: var(--pink);
+  color: white;
+  text-transform: uppercase;
+  font-weight: 900; 
+  padding: 3rem 2rem;
+  box-sizing: border-box;
+}
+
+#ig-logo {
+  background-image: url("../images/instagram.svg");
+  background-repeat: no-repeat;
+  background-size: 50px 50px;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  margin-bottom: 3rem;
+}
+
+#contest h2 {
+  margin-bottom: 3rem;
+  text-align: center;
+  line-height: initial;
+}
+
+#contest ul {
+  list-style: circle;
+  padding-left: 1.5rem;
+}
+
+#contest ul li {
+  line-height: initial;
+}
+
+#contest ul li:not(:last-child) {
+  margin-bottom: 2rem;
+}
